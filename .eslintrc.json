@@ -11,6 +11,14 @@
   "globals": {
     "BigInt": true
   },
+  "overrides": [
+    {
+      "files": ["*.mjs"],
+      "parserOptions": {
+        "sourceType": "module"
+      }
+    }
+  ],
   "rules": {
     "indent": [
       "error",

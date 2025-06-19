@@ -13,6 +13,14 @@ count.value += 50;
 console.log(`Count 3: ${count.value}`);
 
 const num = signal(1000);
+console.log(`Num 1: ${num.value}`);
 
 const total = computed(() => num.value + count.value);
-console.log(`Total: ${total.value}`);
+console.log(`Total 1: ${total.value}`);
+
+// Display reactivity
+
+num.value *= 2;
+console.log(`Num 2: ${num.value}`);
+
+console.log(`Total 2: ${total.value}`);

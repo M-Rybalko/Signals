@@ -1,7 +1,19 @@
-import { signal, computed } from '@angular/core';
+'use strict';
 
-// npm install @angular/core --save
-// yarn add @angular/core
+const signal = (value) => {
+  const box = { value };
+  const getter = () => {
+    if (typeof box.value !== 'function') return box.value;
+    return box.value();
+  };
+  getter.set = (value) => (box.value = value);
+  getter.update = (callback) => (box.value = callback(box.value));
+  return getter;
+};
+
+const computed = (compute) => signal(compute);
+
+// Usage
 
 const count = signal(100);
 console.log(`Count 1: ${count()}`);
